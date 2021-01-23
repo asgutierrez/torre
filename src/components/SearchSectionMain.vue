@@ -43,19 +43,24 @@
 			}
 		}, mounted (){
             this.getUser();
-            console.log(this.latitude);
-            console.log(this.longitude);
+            this.getJobs();
         }, 
         methods: {
             getUser(){
-                console.log('Pureba');
                 axios.get('/api/auth-fetch/auth-fetch?search=stevenandresgutierrezpadilla')
                 .then(Response => {
                     console.log(Response)
                     var latitude = Response.data.msg.person.location.latitude;
                     var longitude = Response.data.msg.person.location.longitude;
-                    this.latitude = latitude
-                    this.longitude = longitude
+                    
+                })
+                .catch( e => console.log(e))
+            },
+            getJobs(){
+                axios.get('/api/auth-fetch2/auth-fetch2?search=stevenandresgutierrezpadilla')
+                .then(Response => {
+                    console.log(Response)
+                    
                 })
                 .catch( e => console.log(e))
             }
