@@ -14,6 +14,11 @@
                 </md-field>
             </div>
         </div>
+        <ul>
+            <li v-for="index in data" :key="index">
+                {{ shoppingItems[index].name }} - {{ shoppingItems[index].price }}
+            </li>
+        </ul>
 	</div>
 </template>
 
@@ -31,6 +36,7 @@
             var longitude;
             this.getUser();
             console.log(latitude);
+            console.log(longitude);
         }, 
         methods: {
             getUser(){
