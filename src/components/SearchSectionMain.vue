@@ -9,7 +9,7 @@
 							<div class="md-ripple" style="width: 40px; height: 40px;"></div>
 						</div>
 					</div>
-                    <label>Buscar trabajos</label>
+                    <label>Buscar trabajos{{subtitulo}}</label>
                     <md-input v-model="type"></md-input>
                 </md-field>
             </div>
@@ -35,6 +35,11 @@
                 axios.get('/api/auth-fetch/auth-fetch?search=stevenandresgutierrezpadilla')
                 .then(Response => {
                     console.log(Response)
+                    var latitude = Response.data.msg.person.location.latitude;
+                    var longitude = Response.data.msg.person.location.longitude;
+                    this.subtitulo = latitude
+                    console.log(latitude)
+                    console.log(longitude)
                 })
                 .catch( e => console.log(e))
             }
