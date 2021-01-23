@@ -19,14 +19,14 @@
 
 <script>
 
-    //import axios from 'axios'
+    import axios from 'axios'
 	export default {
 		name: 'SearchSectionMain',
 		data() {
 			return {
 				subtitulo: "Subtítulo del componente"
 			}
-		}/*, mounted (){
+		}, mounted (){
             this.getUser();
         }, 
         methods: {
@@ -38,7 +38,7 @@
                 })
                 .catch( e => console.log(e))
             }
-        }*/
+        }
 	}
 </script>
 
