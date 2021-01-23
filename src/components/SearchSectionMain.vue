@@ -27,7 +27,10 @@
 				subtitulo: "Subtítulo del componente"
 			}
 		}, mounted (){
+            var latitude;
+            var longitude;
             this.getUser();
+            console.log(latitude);
         }, 
         methods: {
             getUser(){
@@ -37,9 +40,8 @@
                     console.log(Response)
                     var latitude = Response.data.msg.person.location.latitude;
                     var longitude = Response.data.msg.person.location.longitude;
-                    this.subtitulo = latitude
-                    console.log(latitude)
-                    console.log(longitude)
+                    this.latitude = latitude
+                    this.longitude = longitude
                 })
                 .catch( e => console.log(e))
             }
