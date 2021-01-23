@@ -14,6 +14,12 @@
                 </md-field>
             </div>
         </div>
+        <div v-for="(item) in data" :key="item.id">
+            <h2></h2>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul>
             <li v-for="(item) in data" :key="item.id">
                 {{ item.name }} - {{ item.price }}
@@ -52,6 +58,8 @@
                     console.log(Response)
                     var latitude = Response.data.msg.person.location.latitude;
                     var longitude = Response.data.msg.person.location.longitude;
+                    console.log(latitude);
+                    console.log(longitude);
                     
                 })
                 .catch( e => console.log(e))
