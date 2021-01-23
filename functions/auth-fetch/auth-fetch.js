@@ -20,7 +20,7 @@ const handler = async function (event, context) {
       return { statusCode: response.status, body: response.statusText }
     }
     const data = await response.json()
-
+    console.log(data)
     return {
       statusCode: 200,
       body: JSON.stringify({ identity, user, msg: data.value }),
