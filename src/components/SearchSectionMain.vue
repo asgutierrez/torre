@@ -15,8 +15,8 @@
             </div>
         </div>
         <ul>
-            <li v-for="index in data" :key="index">
-                {{ data[index].name }} - {{ data[index].price }}
+            <li v-for="(item) in data" :key="item.id">
+                {{ item.name }} - {{ item.price }}
             </li>
         </ul>
 	</div>
