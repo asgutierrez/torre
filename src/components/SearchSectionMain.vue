@@ -32,7 +32,7 @@
         methods: {
             getUser(){
                 console.log('Pureba');
-                axios.get('/api/user')
+                axios.get('/api/auth-fetch/auth-fetch?search=stevenandresgutierrezpadilla')
                 .then(Response => {
                     console.log(Response)
                 })
