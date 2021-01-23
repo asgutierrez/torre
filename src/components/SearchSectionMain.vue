@@ -16,7 +16,7 @@
         </div>
         <ul>
             <li v-for="index in data" :key="index">
-                {{ shoppingItems[index].name }} - {{ shoppingItems[index].price }}
+                {{ data[index].name }} - {{ data[index].price }}
             </li>
         </ul>
 	</div>
@@ -29,14 +29,22 @@
 		name: 'SearchSectionMain',
 		data() {
 			return {
-				subtitulo: "Subtítulo del componente"
+                subtitulo: "Subtítulo del componente",
+                data: [
+                    {
+                        name: 'name1',
+                        price: 'price1'
+                    },
+                    {
+                        name: 'name2',
+                        price: 'price2'
+                    }
+                ]
 			}
 		}, mounted (){
-            var latitude;
-            var longitude;
             this.getUser();
-            console.log(latitude);
-            console.log(longitude);
+            console.log(this.latitude);
+            console.log(this.longitude);
         }, 
         methods: {
             getUser(){
