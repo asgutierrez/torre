@@ -32,7 +32,7 @@
         methods: {
             getUser(){
                 console.log('Pureba');
-                axios.get('https://torre.bio/api/bios/stevenandresgutierrezpadilla')
+                axios.get('/api/user')
                 .then(Response => {
                     console.log(Response)
                 })
