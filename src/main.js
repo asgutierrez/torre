@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 Vue.use(VueMaterial)
 
 new Vue({
