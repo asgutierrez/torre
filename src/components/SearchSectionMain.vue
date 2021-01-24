@@ -78,7 +78,7 @@
                 .catch( e => console.log(e))
             },
             getJob(id){
-                axios.get('/api/auth-fetch2/auth-fetch3?search='+id)
+                axios.get('/api/auth-fetch3/auth-fetch3?search='+id)
                 .then(Response => {
                     console.log(Response)
                 })
