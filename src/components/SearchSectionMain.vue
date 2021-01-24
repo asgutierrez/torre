@@ -1,30 +1,13 @@
 <template>
 	<div id="search-section-main">
-		<div class="filter-location__container">
-            <div class="filter-location__typeahead">
-                <md-field>
-                    <div class="image-a md-button md-icon-button md-theme-dark">
-						<i aria-hidden="true" class="md-icon md-theme-dark material-icons">pageview</i>
-						<div class="md-ink-ripple">
-							<div class="md-ripple" style="width: 40px; height: 40px;"></div>
-						</div>
-					</div>
-                    <label>Buscar trabajos{{subtitulo}}</label>
-                    <md-input v-model="type"></md-input>
-                </md-field>
-            </div>
+        <div class="data-c" v-for="(item) in data" :key="item.id">
+            <h2>{{ item.name }}</h2>
+            <span class="inten">{{ item.inten }}</span>
+            <br>
+            <span class="comp">{{ item.comp }}</span>
+            <br>
+            <span class="place">{{ item.place }}</span>
         </div>
-        <div v-for="(item) in data" :key="item.id">
-            <h2></h2>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul>
-            <li v-for="(item) in data" :key="item.id">
-                {{ item.name }} - {{ item.price }}
-            </li>
-        </ul>
 	</div>
 </template>
 
@@ -36,31 +19,48 @@
 		data() {
 			return {
                 subtitulo: "Subtítulo del componente",
+                latitude: 0,
+                longitude: 0,
                 data: [
                     {
                         name: 'name1',
-                        price: 'price1'
+                        inten: 'inten1',
+                        comp: 'comp1',
+                        place: 'place1'
                     },
                     {
                         name: 'name2',
-                        price: 'price2'
+                        inten: 'inten2',
+                        comp: 'comp2',
+                        place: 'place2'
+                    },
+                    {
+                        name: 'name2',
+                        inten: 'inten2',
+                        comp: 'comp2',
+                        place: 'place2'
+                    },
+                    {
+                        name: 'name2',
+                        inten: 'inten2',
+                        comp: 'comp2',
+                        place: 'place2'
                     }
                 ]
 			}
 		}, mounted (){
             this.getUser();
-            this.getJobs();
         }, 
         methods: {
             getUser(){
                 axios.get('/api/auth-fetch/auth-fetch?search=stevenandresgutierrezpadilla')
                 .then(Response => {
                     console.log(Response)
-                    var latitude = Response.data.msg.person.location.latitude;
-                    var longitude = Response.data.msg.person.location.longitude;
-                    console.log(latitude);
-                    console.log(longitude);
-                    
+                    this.latitude = Response.data.msg.person.location.latitude;
+                    this.longitude = Response.data.msg.person.location.longitude;
+                    console.log(this.latitude);
+                    console.log(this.longitude);
+                    this.getJobs();
                 })
                 .catch( e => console.log(e))
             },
@@ -68,7 +68,19 @@
                 axios.get('/api/auth-fetch2/auth-fetch2?search=stevenandresgutierrezpadilla')
                 .then(Response => {
                     console.log(Response)
-                    
+                    var id;
+                    var results = Response.data.msg.results;
+                    results.forEach(element => {
+                        id = element.id
+                        this.getJob(id);
+                    });
+                })
+                .catch( e => console.log(e))
+            },
+            getJob(id){
+                axios.get('/api/auth-fetch2/auth-fetch3?search='+id)
+                .then(Response => {
+                    console.log(Response)
                 })
                 .catch( e => console.log(e))
             }
@@ -123,5 +135,25 @@
     color:rgb(143, 143, 146);
     font-size: 31px;
 }
+
+.data-c {
+    width: 300px;
+    height: 150px;
+    background-color: #27292d;
+    text-align: justify;
+    padding: 10px;
+    margin: 50px;
+    float: left;
+    padding-left: 40px;
+}
+
+.data-c h2{
+    color: #b2bf37;
+}
+
+.data-c span {
+    color: rgba(255, 255, 255, 0.65);
+}
+
 
 </style>
