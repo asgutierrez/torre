@@ -81,6 +81,21 @@
                 axios.get('/api/auth-fetch3/auth-fetch3?search='+id)
                 .then(Response => {
                     console.log(Response)
+                    var latitude = Response.data.msg.place.location[0].latitude;
+                    var longitude = Response.data.msg.place.location[0].longitude;
+                    
+                    var R = 6357;
+
+                    var dlat = this.latitude - latitude;
+                    var dlong = this.longitude - longitude;
+
+                    var a = Math.pow(Math.sin(dlat/2),2) + Math.cos(latitude) * Math.cos(this.latitude) * Math.pow(Math.sin(dlong/2),2);
+
+                    var c = 2 * Math.atan2(Math.pow(a,0.5), Math.pow(1-a,0.5));
+
+                    var d = R * c
+
+                    console.log(d);
                 })
                 .catch( e => console.log(e))
             }
