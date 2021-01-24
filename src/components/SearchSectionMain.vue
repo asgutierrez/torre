@@ -61,8 +61,8 @@
                     
                     var R = 6357;
 
-                    var dlat = this.latitude - latitude;
-                    var dlong = this.longitude - longitude;
+                    var dlat = (this.latitude - latitude)*Math.PI/180;
+                    var dlong = (this.longitude - longitude)*Math.PI/180;
 
                     var a = Math.pow(Math.sin(dlat/2),2) + Math.cos(latitude) * Math.cos(this.latitude) * Math.pow(Math.sin(dlong/2),2);
 
