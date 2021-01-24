@@ -17,7 +17,7 @@ const handler = async function (event, context) {
   const { identity, user } = context.clientContext;
   try {
     const username = event.queryStringParameters.search;
-    const response = await fetch(`https://search.torre.co/opportunities/_search/?offset=0&size=30&aggregate=0`,
+    const response = await fetch(`https://search.torre.co/opportunities/_search/?offset=0&size=100&aggregate=0`,
     {
       method: 'POST',
     });
