@@ -99,14 +99,11 @@
                     console.log(latitude);
                     console.log(longitude);
                     console.log(d);
-                    console.log(Response.data);
-                    console.log(Response.data.commitment);
-                    
 
                     this.data.push(
                         {
                             name: Response.data.msg.objective,
-                            inten: Response.data.commitment.code,
+                            inten: Response.data.msg.commitment.code,
                             comp: Response.data.msg.compensation.currency+Response.data.msg.compensation.minAmount+" - "+Response.data.msg.compensation.currency+Response.data.msg.compensation.maxAmount,
                             place: Response.data.msg.place.location[0].id
                         }
