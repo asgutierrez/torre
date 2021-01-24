@@ -99,6 +99,9 @@
                     console.log(latitude);
                     console.log(longitude);
                     console.log(d);
+                    console.log(Response.data);
+                    console.log(Response.data.commitment);
+                    
 
                     this.data.push(
                         {
