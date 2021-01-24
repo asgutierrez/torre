@@ -1,5 +1,8 @@
 <template>
 	<div id="search-section-main">
+        <div class="des">
+            Vacantes cerca a Medellín, Colombia (radio de 500 Km)
+        </div>
         <div class="data-c" v-for="(item) in data" :key="item.id">
             <h2>{{ item.name }}</h2>
             <span class="inten">{{ item.inten }}</span>
@@ -158,5 +161,14 @@
     color: rgba(255, 255, 255, 0.65);
 }
 
+.des {
+    position: fixed;
+    background: linear-gradient(180deg, black, transparent);
+    width: 100%;
+    text-align: left;
+    color: #b2bf37;
+    height: 73px;
+    padding: 6px 30px;
+}
 
 </style>
