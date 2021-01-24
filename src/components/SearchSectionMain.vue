@@ -75,7 +75,8 @@
                     console.log(longitude);
                     console.log(d);
 
-                    this.data.push(
+                    if (d<500) {
+                        this.data.push(
                         {
                             name: Response.data.msg.objective,
                             inten: Response.data.msg.commitment.code,
@@ -83,6 +84,7 @@
                             place: Response.data.msg.place.location[0].id
                         }
                     );
+                    }
                 })
                 .catch( e => console.log(e))
             }
