@@ -94,8 +94,20 @@
                     var c = 2 * Math.atan2(Math.pow(a,0.5), Math.pow(1-a,0.5));
 
                     var d = R * c
-
+                    console.log(this.latitude);
+                    console.log(this.longitude);
+                    console.log(latitude);
+                    console.log(longitude);
                     console.log(d);
+
+                    this.data.push(
+                        {
+                            name: Response.data.msg.objective,
+                            inten: Response.data.commitment.code,
+                            comp: Response.data.msg.compensation.currency+Response.data.msg.compensation.minAmount+" - "+Response.data.msg.compensation.currency+Response.data.msg.compensation.maxAmount,
+                            place: Response.data.msg.place.location[0].id
+                        }
+                    );
                 })
                 .catch( e => console.log(e))
             }
