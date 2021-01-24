@@ -21,32 +21,7 @@
                 subtitulo: "Subtítulo del componente",
                 latitude: 0,
                 longitude: 0,
-                data: [
-                    {
-                        name: 'name1',
-                        inten: 'inten1',
-                        comp: 'comp1',
-                        place: 'place1'
-                    },
-                    {
-                        name: 'name2',
-                        inten: 'inten2',
-                        comp: 'comp2',
-                        place: 'place2'
-                    },
-                    {
-                        name: 'name2',
-                        inten: 'inten2',
-                        comp: 'comp2',
-                        place: 'place2'
-                    },
-                    {
-                        name: 'name2',
-                        inten: 'inten2',
-                        comp: 'comp2',
-                        place: 'place2'
-                    }
-                ]
+                data: []
 			}
 		}, mounted (){
             this.getUser();
@@ -164,14 +139,13 @@
 }
 
 .data-c {
-    width: 300px;
-    height: 150px;
+    width: 400px;
+    height: 170px;
     background-color: #27292d;
     text-align: justify;
-    padding: 10px;
+    padding: 10px 40px;
     margin: 50px;
     float: left;
-    padding-left: 40px;
 }
 
 .data-c h2{

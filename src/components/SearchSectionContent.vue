@@ -47,6 +47,7 @@
 	width: 71%;
 	background-color: #000;
 	height: 100%;
+	overflow-y: scroll;
 }
 
 </style>
